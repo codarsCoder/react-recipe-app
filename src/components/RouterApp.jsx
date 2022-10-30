@@ -1,4 +1,5 @@
 import React from 'react'
+import {useState} from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Home from '../pages/Home'
 import About from '../pages/About'
@@ -13,7 +14,7 @@ const RouterApp = () => {
   return (
     <Routes>
      
-    <Route path="/Logout" element={<Navigate to={"/Login"} />} />
+    <Route path="/Logout" element={<LogOut />} />
     <Route path="/Login" element={<Login />} />
     <Route path="/" element={<Login />} />
     <Route path="/Home" element={<Home />} />

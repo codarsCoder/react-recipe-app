@@ -6,19 +6,22 @@ import { useNavigate, Navigate, useLocation } from 'react-router-dom';
 import bImg from '../assets/back.png'
 
 
-const Home = ({logIn}) => {
-
-  logIn ?? <Navigate to="/Login" />
+const Home = () => {
+ const {state}  = useLocation();
   const navigate = useNavigate();
+  useEffect(() => {
+    !state && navigate("/Login")
+  }, [])
   const id = "307914b7";
   const api_key = "c161ae86451015c9a16d3ef7b30dfa55";
   const [detail, setDetail] = useState([]);
   const [search, setSearch] = useState("")
   const [meal, setMeal] = useState("Breakfast")
-  const [login, setLogin] = useState(true)
+  const [load, setLoad] = useState(false)
+
   const handleSubmit = (e) => {
+    setLoad(true)
     e.preventDefault();
-    setLogin(false)
     setSearch(e.target.search.value)
     setMeal(e.target.meal.value)
     getData()
@@ -27,18 +30,19 @@ const Home = ({logIn}) => {
   const getData = async () => {
    
         const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${search}&app_id=${id}&app_key=${api_key}&mealType=${meal}`;
-    const { data } = await axios(url).finally(()=> setLogin(false));
+    const { data } = await axios(url).catch(err=>console.log(err)).finally(()=> setLoad(false));
     setDetail(data.hits)
   }
   useEffect(() => {
-    getData();
+    setLoad(true)
+    state && getData();
   }, [])
   return (
     <>
-   
+     { load && <div className='fs-5 loading'>Loading ...</div>}
       <div style={{backgroundImage:bImg}} className="container">
       <div className="row d-flex justify-content-center align-items-center">
-      { login && <div>Loading ...</div>}
+    
 <form onSubmit={(e) => handleSubmit(e)} className="row g-3 w-100">
         <div className="col-auto">
           <input

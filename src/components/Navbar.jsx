@@ -1,12 +1,12 @@
-import { Link, NavLink, Navigate } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 
 
 const Navbar = () => {
-
+const navigate = useNavigate();
   return (
     <nav className="navbar navbar-expand navbar-dark bg-back">
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand fs-3" >
+        <Link to="/Home" className="navbar-brand fs-3" >
           Recipe
         </Link>
         <button
@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link active" aria-current="page">
+              <NavLink to="/Home" className="nav-link active" aria-current="page">
                 Home
               </NavLink>
             </li>
@@ -35,9 +35,9 @@ const Navbar = () => {
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink to="/LogOut"  className="nav-link active" aria-current="page">
+              <button onClick={()=> navigate("/", {state:false})}  className="nav-link active" aria-current="page">
                 Log Out
-              </NavLink>
+              </button>
             </li>
           </ul>
         </div>
