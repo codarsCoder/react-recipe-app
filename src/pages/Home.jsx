@@ -2,9 +2,13 @@ import React from 'react'
 import search from '../components/Search'
 import { useEffect, useState } from 'react'
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate, useLocation } from 'react-router-dom';
 import bImg from '../assets/back.png'
-const Home = () => {
+
+
+const Home = ({logIn}) => {
+
+  logIn ?? <Navigate to="/Login" />
   const navigate = useNavigate();
   const id = "307914b7";
   const api_key = "c161ae86451015c9a16d3ef7b30dfa55";

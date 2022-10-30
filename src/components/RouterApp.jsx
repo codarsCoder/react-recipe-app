@@ -1,15 +1,22 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Home from '../pages/Home'
 import About from '../pages/About'
 import NotFound from '../pages/NotFound'
 import Details from '../pages/Details'
+import Login from '../pages/Login'
+import LogOut from '../pages/LogOut'
+
 
 const RouterApp = () => {
+
   return (
     <Routes>
-    {/* <Route path="/logout" element={<Navigate to={"/login"} />} /> */}
-    <Route path="/" element={<Home />} />
+     
+    <Route path="/Logout" element={<Navigate to={"/Login"} />} />
+    <Route path="/Login" element={<Login />} />
+    <Route path="/" element={<Login />} />
+    <Route path="/Home" element={<Home />} />
     <Route path="/About"  element={<About />} />
     <Route path="/Details"  element={<Details />} />
     <Route path="*" element={<NotFound/>} />

@@ -1,7 +1,8 @@
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, Navigate } from "react-router-dom"
 
 
-const Navbar = ({logIn,setLogIn}) => {
+const Navbar = () => {
+
   return (
     <nav className="navbar navbar-expand navbar-dark bg-back">
       <div className="container-fluid">
@@ -34,12 +35,9 @@ const Navbar = ({logIn,setLogIn}) => {
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item">
-             { logIn && <NavLink to="/LogOut"  onClick={()=> setLogIn(!logIn)}className="nav-link active" aria-current="page">
-                  Log Out
-                </NavLink>
-           } 
-
-
+              <NavLink to="/LogOut"  className="nav-link active" aria-current="page">
+                Log Out
+              </NavLink>
             </li>
           </ul>
         </div>

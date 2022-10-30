@@ -25,7 +25,7 @@ min-height: 650px ;
   align-items: center;
   row-gap: 20px;
   flex-direction: column;
-  min-width: 300px;
+  min-width: 400px;
   text-align: center;
   margin: 0 auto;
 }
@@ -38,6 +38,14 @@ min-height: 650px ;
   object-fit: cover;
 
 }
+.btn:not(.btn-link) {
+  background-color:rgb(254, 95, 2) !important;
+  border: none;
+  transition: transform 0.5s;
+}
+.btn:active  {
+  transform: scale(0.9);
+}
 .bgWhite {
   border-radius: 5px;
   background-color: white;
@@ -46,7 +54,7 @@ min-height: 650px ;
 .detail2 {
   border-radius: 5px;
   border: 2px solid rgb(254, 95, 2);
-  background-color: rgb(28, 28, 28);
+  background-color: rgb(254, 95, 2);
   color: white;
   text-align: center;
   padding: 20px;
