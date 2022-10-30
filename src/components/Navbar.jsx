@@ -1,10 +1,9 @@
 import { Link, NavLink } from "react-router-dom"
 
 
-const Navbar = ({logIn}) => {
-  console.log(logIn,"log");
+const Navbar = ({logIn,setLogIn}) => {
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-primary">
+    <nav className="navbar navbar-expand navbar-dark bg-back">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand fs-3" >
           Recipe
@@ -35,17 +34,9 @@ const Navbar = ({logIn}) => {
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item">
-             { ()=>{
-                if({logIn}){
-                <NavLink to="/LogOut" className="nav-link active" aria-current="page">
+             { logIn && <NavLink to="/LogOut"  onClick={()=> setLogIn(!logIn)}className="nav-link active" aria-current="page">
                   Log Out
                 </NavLink>
-              }else{
-                <NavLink to="/LogOut" className="nav-link active" aria-current="page">
-                  Log Out
-                </NavLink>
-              }
-             }
            } 
 
 

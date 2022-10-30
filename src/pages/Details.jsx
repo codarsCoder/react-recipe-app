@@ -10,7 +10,7 @@ const Details = () => {
     return (
         <div className='container mt-2 p-5 bgColor d-flex justify-content-center'>
             <div className="row">
-                <div className="col-md-6 detail">
+                <div className="col-md-6 detail bgWhite">
                     <div className="detail1">
                         <img src={image} alt="" />
                     </div>

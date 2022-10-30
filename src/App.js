@@ -7,10 +7,10 @@ import { BrowserRouter, Router } from 'react-router-dom';
 
 function App() {
 
-  const [logIn, setLogIn] = useState(false)
+  const [logIn, setLogIn] = useState(true)
   return (
     <BrowserRouter>
-      <Navbar logIn = {logIn} />
+      <Navbar logIn = {logIn} setLogIn = {setLogIn} />
       <RouterApp />
     </BrowserRouter>
     
