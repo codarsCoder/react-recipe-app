@@ -7,6 +7,7 @@ import NotFound from '../pages/NotFound'
 import Details from '../pages/Details'
 import Login from '../pages/Login'
 import LogOut from '../pages/LogOut'
+import PrivateRoute from '../pages/PrivateRoute'
 
 
 const RouterApp = () => {
@@ -16,8 +17,9 @@ const RouterApp = () => {
      
     <Route path="/Logout" element={<LogOut />} />
     <Route path="/Login" element={<Login />} />
-    <Route path="/" element={<Login />} />
-    <Route path="/Home" element={<Home />} />
+    <Route path="/" element={<PrivateRoute />}>
+    <Route path="" element={<Home />} />
+    </Route>
     <Route path="/About"  element={<About />} />
     <Route path="/Details"  element={<Details />} />
     <Route path="*" element={<NotFound/>} />

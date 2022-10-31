@@ -4,14 +4,16 @@ import { useEffect, useState } from 'react'
 import axios from "axios";
 import { useNavigate, Navigate, useLocation } from 'react-router-dom';
 import bImg from '../assets/back.png'
+import Cards from './Cards';
 
 
 const Home = () => {
  const {state}  = useLocation();
   const navigate = useNavigate();
-  useEffect(() => {
-    !state && navigate("/Login")
-  }, [])
+  localStorage.getItem("recipeApp") || navigate("/Login")
+  // useEffect(() => {
+  //   !state && navigate("/Login")
+  // }, [])
   const id = "307914b7";
   const api_key = "c161ae86451015c9a16d3ef7b30dfa55";
   const [detail, setDetail] = useState([]);
@@ -33,10 +35,10 @@ const Home = () => {
     const { data } = await axios(url).catch(err=>console.log(err)).finally(()=> setLoad(false));
     setDetail(data.hits)
   }
-  useEffect(() => {
-    setLoad(true)
-    state && getData();
-  }, [])
+  // useEffect(() => {
+  //   setLoad(true)
+  //   state && getData();
+  // }, [])
   return (
     <>
      { load && <div className='fs-5 loading'>Loading ...</div>}
@@ -71,26 +73,7 @@ const Home = () => {
     </div>
       
       <div className="container d-flex justify-content-center">
-<div className="row">
-{detail.map((item, i) => {
-        return (
-          <div key={i}className="card m-3 p-0" style={{width: 400 }}>
-          <div className="row g-0">
-            <div className="col-md-4">
-              <img height="100px" src={item.recipe.image} className="img-fluid rounded-start w-100" alt="..." />
-            </div>
-            <div className="col-md-8 d-flex align-items-center">
-              <div className="card-body">
-                <h5 className="card-title">{item.recipe.label}</h5>
-                <button onClick={()=> navigate('/Details',{state:{item}})} className='btn btn-secondary btn-sm'>Detail</button>
-              </div>
-            
-            </div>
-          </div>
-        </div>
-        )
-      })}
-</div>
+            <Cards detail = {detail} />
       </div>
      
 

@@ -1,18 +1,16 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import  {useState, useEffect} from "react"
 
 const Login = () => {
    const navigate = useNavigate();
-    const [logIn, setLogIn] = useState(false)
- 
-    useEffect(() => {
-        !logIn && navigate("/Home",{state:true})
-    }, [])
-    
+    localStorage.getItem("recipeApp") && navigate("/")
+  const {state} = useLocation();
+  if(!state) {localStorage.setItem("recipeApp",false)};
+
     const handleSubmit = (e)=> {
         e.preventDefault();
-        setLogIn(true);
-        navigate("/Home",{state:true})
+        localStorage.setItem("recipeApp",true);
+        navigate("/")
     }  
   return (
     <>

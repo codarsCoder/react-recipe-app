@@ -84,7 +84,7 @@ const Details = () => {
                 </div>
                 
                         
-                        <button onClick={()=> navigate(-1) } className="btn btn-link mt-5 fs-5">Go Back</button>
+                        <button onClick={()=> navigate(-1)} className="btn btn-link mt-5 fs-5">Go Back</button>
             </div>
         </div>
     )
