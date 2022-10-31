@@ -11,9 +11,6 @@ const Home = () => {
  const {state}  = useLocation();
   const navigate = useNavigate();
   localStorage.getItem("recipeApp") || navigate("/Login")
-  // useEffect(() => {
-  //   !state && navigate("/Login")
-  // }, [])
   const id = "307914b7";
   const api_key = "c161ae86451015c9a16d3ef7b30dfa55";
   const [detail, setDetail] = useState([]);
