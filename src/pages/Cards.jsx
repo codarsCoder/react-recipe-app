@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
 
-
-
 const Cards = ({detail}) => {
     const navigate = useNavigate();
   return (

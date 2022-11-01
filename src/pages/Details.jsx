@@ -6,7 +6,6 @@ const Details = () => {
     const { state } = useLocation();
     const { label, image, totalNutrients, calories, ingredientLines, mealType, cuisineType, dietLabels
     } = state.item.recipe;
-    console.log(state)
     return (
         <div className='container mt-2 p-5 bgColor d-flex justify-content-center'>
             <div className="row">

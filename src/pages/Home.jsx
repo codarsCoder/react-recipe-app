@@ -1,6 +1,5 @@
 import React from 'react'
-import search from '../components/Search'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import axios from "axios";
 import { useNavigate, Navigate, useLocation } from 'react-router-dom';
 import bImg from '../assets/back.png'
@@ -32,10 +31,7 @@ const Home = () => {
     const { data } = await axios(url).catch(err=>console.log(err)).finally(()=> setLoad(false));
     setDetail(data.hits)
   }
-  // useEffect(() => {
-  //   setLoad(true)
-  //   state && getData();
-  // }, [])
+
   return (
     <>
      { load && <div className='fs-5 loading'>Loading ...</div>}
