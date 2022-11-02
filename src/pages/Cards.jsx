@@ -15,7 +15,7 @@ const Cards = ({detail}) => {
                 <div className="col-md-8 d-flex align-items-center">
                   <div className="card-body">
                     <h5 className="card-title">{item.recipe.label}</h5>
-                    <button onClick={()=> navigate('/Details',{state:{item}})} className='btn btn-secondary btn-sm'>Detail</button>
+                    <button onClick={()=> navigate('/Details',{state:{item},replace:false})} className='btn btn-secondary btn-sm'>Detail</button>
                   </div>
                 
                 </div>
